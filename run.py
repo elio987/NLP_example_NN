@@ -22,7 +22,7 @@ with open('exercise_1_folder/tiny_movie_reviews_dataset.txt','r') as file:
 
 """Exercise 2"""
 #Leonardo Gracida Munoz A01379812
-from flair.data import Corpus
+from flair.data import Corpus,Dictionary
 from flair.datasets import ColumnCorpus
 from flair.models import SequenceTagger
 from flair.trainers import ModelTrainer
@@ -48,15 +48,27 @@ corpus= corpus.downsample(int(N_EXAMPLES_TO_TRAIN)/len(corpus.train))
 print(corpus.train[2].to_tagged_string('ner'))
 #we check the structure of the corpus
 print(corpus)
-tag_dictionary = corpus.make_label_dictionary(label_type = "ner")
-#print(tag_dictionary)
-#We select the model we want to train
-tagger = SequenceTagger.load("flair/ner-english-ontonotes-fast")
+#We get the new dictionary of tags
+new_tag_dictionary = corpus.make_label_dictionary(label_type = "ner")
+print(new_tag_dictionary)
+#We get the previous tagger
+previous_tagger: SequenceTagger = SequenceTagger.load("flair/ner-english-ontonotes-fast")
+#We extract the previous embeddings of the pretrained model and insert the new tag dictionary
+tagger: SequenceTagger = SequenceTagger(
+        hidden_size=256,
+        embeddings=previous_tagger.embeddings,
+        tag_dictionary=new_tag_dictionary,
+        tag_type='ner',
+    )
+
+#Reuse que internal layers
+tagger.embedding2nn = previous_tagger.embedding2nn
+tagger.rnn = previous_tagger.rnn
 #We create the trainer
 trainer = ModelTrainer(tagger, corpus)
 #We train the model
 trainer.train('exercise_2_folder/resources/taggers/ner-english',train_with_dev=True,max_epochs=int(epochs),
-              monitor_train = True, monitor_test = True)
+              monitor_train = True, monitor_test = True,learning_rate = 0.1)
 #Load the model
 model = SequenceTagger.load('exercise_2_folder/resources/taggers/ner-english/final-model.pt')
 
@@ -74,8 +86,7 @@ for i in range(10):
     model.predict(sentence)
     #We print the entities
     print("Entities: ")
-    for entity in sentence.get_spans('ner'):
-        print(entity)
+    print(sentence.get_spans('ner'))
 
 """Exercise 3"""
 
