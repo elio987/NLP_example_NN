@@ -6,7 +6,6 @@ from flair.trainers import ModelTrainer
 from flair.data import Sentence
 from flair.models import SequenceTagger
 from flair.visual.training_curves import Plotter
-import inspect 
 #Number of examples of train
 N_EXAMPLES_TO_TRAIN = 600
 #Tag of the data we will use
@@ -24,14 +23,14 @@ corpus= corpus.downsample(N_EXAMPLES_TO_TRAIN/len(corpus.train))
 print(corpus.train[2].to_tagged_string('ner'))
 #we check the structure of the corpus
 print(corpus)
-tag_dictionary = corpus.make_label_dictionary(label_type = "ner")
-print(tag_dictionary)
+#tag_dictionary = corpus.make_label_dictionary(label_type = "ner")
+#print(tag_dictionary)
 #We select the model we want to train
 tagger = SequenceTagger.load("flair/ner-english-ontonotes-fast")
 #We create the trainer
 trainer = ModelTrainer(tagger, corpus)
 #We train the model
-trainer.train('resources/taggers/ner-english',train_with_dev=True,max_epochs=7,
+trainer.train('resources/taggers/ner-english',max_epochs=7,
               monitor_train = True, monitor_test = True)
 #Load the model
 model = SequenceTagger.load('resources/taggers/ner-english/final-model.pt')

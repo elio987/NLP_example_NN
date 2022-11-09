@@ -1,0 +1,5 @@
+googletrans==3.1.0a0
+flair
+nltk
+transformers
+transformers[sentencepiece]
