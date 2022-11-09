@@ -1,0 +1,60 @@
+2022-11-08 19:15:42,727 ----------------------------------------------------------------------------------------------------
+2022-11-08 19:15:42,727 Model: "SequenceTagger(
+  (embeddings): StackedEmbeddings(
+    (list_embedding_0): WordEmbeddings('en-crawl')
+    (list_embedding_1): FlairEmbeddings(
+      (lm): LanguageModel(
+        (drop): Dropout(p=0.25, inplace=False)
+        (encoder): Embedding(275, 100)
+        (rnn): LSTM(100, 1024)
+        (decoder): Linear(in_features=1024, out_features=275, bias=True)
+      )
+    )
+    (list_embedding_2): FlairEmbeddings(
+      (lm): LanguageModel(
+        (drop): Dropout(p=0.25, inplace=False)
+        (encoder): Embedding(275, 100)
+        (rnn): LSTM(100, 1024)
+        (decoder): Linear(in_features=1024, out_features=275, bias=True)
+      )
+    )
+  )
+  (word_dropout): WordDropout(p=0.05)
+  (locked_dropout): LockedDropout(p=0.5)
+  (embedding2nn): Linear(in_features=2348, out_features=2348, bias=True)
+  (rnn): LSTM(2348, 256, batch_first=True, bidirectional=True)
+  (linear): Linear(in_features=512, out_features=76, bias=True)
+  (loss_function): ViterbiLoss()
+  (crf): CRF()
+)"
+2022-11-08 19:15:42,727 ----------------------------------------------------------------------------------------------------
+2022-11-08 19:15:42,727 Corpus: "Corpus: 600 train + 251 dev + 965 test sentences"
+2022-11-08 19:15:42,727 ----------------------------------------------------------------------------------------------------
+2022-11-08 19:15:42,728 Parameters:
+2022-11-08 19:15:42,728  - learning_rate: "0.100000"
+2022-11-08 19:15:42,728  - mini_batch_size: "32"
+2022-11-08 19:15:42,728  - patience: "3"
+2022-11-08 19:15:42,728  - anneal_factor: "0.5"
+2022-11-08 19:15:42,728  - max_epochs: "7"
+2022-11-08 19:15:42,728  - shuffle: "True"
+2022-11-08 19:15:42,728  - train_with_dev: "True"
+2022-11-08 19:15:42,728  - batch_growth_annealing: "False"
+2022-11-08 19:15:42,728 ----------------------------------------------------------------------------------------------------
+2022-11-08 19:15:42,728 Model training base path: "resources/taggers/ner-english"
+2022-11-08 19:15:42,728 ----------------------------------------------------------------------------------------------------
+2022-11-08 19:15:42,728 Device: cpu
+2022-11-08 19:15:42,728 ----------------------------------------------------------------------------------------------------
+2022-11-08 19:15:42,728 Embeddings storage mode: cpu
+2022-11-08 19:15:42,728 ----------------------------------------------------------------------------------------------------
+2022-11-08 19:17:32,103 epoch 1 - iter 2/27 - loss 1.04297655 - samples/sec: 0.59 - lr: 0.100000
+2022-11-08 19:19:27,796 epoch 1 - iter 4/27 - loss 0.93334811 - samples/sec: 0.55 - lr: 0.100000
+2022-11-08 19:21:18,851 epoch 1 - iter 6/27 - loss 0.77492873 - samples/sec: 0.58 - lr: 0.100000
+2022-11-08 19:23:12,700 epoch 1 - iter 8/27 - loss 0.74981816 - samples/sec: 0.56 - lr: 0.100000
+2022-11-08 19:25:01,892 epoch 1 - iter 10/27 - loss 0.72021829 - samples/sec: 0.59 - lr: 0.100000
+2022-11-08 19:26:39,376 epoch 1 - iter 12/27 - loss 0.66958771 - samples/sec: 0.66 - lr: 0.100000
+2022-11-08 19:28:14,942 epoch 1 - iter 14/27 - loss 0.65485103 - samples/sec: 0.67 - lr: 0.100000
+2022-11-08 19:29:53,216 epoch 1 - iter 16/27 - loss 0.63554168 - samples/sec: 0.65 - lr: 0.100000
+2022-11-08 19:31:22,905 epoch 1 - iter 18/27 - loss 0.61388259 - samples/sec: 0.71 - lr: 0.100000
+2022-11-08 19:32:52,685 ----------------------------------------------------------------------------------------------------
+2022-11-08 19:32:52,686 Exiting from training early.
+2022-11-08 19:32:52,686 Saving model ...
