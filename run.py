@@ -55,7 +55,7 @@ print(new_tag_dictionary)
 previous_tagger: SequenceTagger = SequenceTagger.load("flair/ner-english-ontonotes-fast")
 #We extract the previous embeddings of the pretrained model and insert the new tag dictionary
 tagger: SequenceTagger = SequenceTagger(
-        hidden_size=256,
+        hidden_size=previous_tagger.hidden_size,
         embeddings=previous_tagger.embeddings,
         tag_dictionary=new_tag_dictionary,
         tag_type='ner',
@@ -68,7 +68,7 @@ tagger.rnn = previous_tagger.rnn
 trainer = ModelTrainer(tagger, corpus)
 #We train the model
 trainer.train('exercise_2_folder/resources/taggers/ner-english',train_with_dev=True,max_epochs=int(epochs),
-              monitor_train = True, monitor_test = True,learning_rate = 0.1)
+              monitor_train = True, monitor_test = True,learning_rate = 0.1,embeddings_storage_mode='gpu')
 #Load the model
 model = SequenceTagger.load('exercise_2_folder/resources/taggers/ner-english/final-model.pt')
 
