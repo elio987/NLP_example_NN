@@ -51,7 +51,7 @@ def train_model(trainer,epochs):
     """Function that train the model and create the learning line graph"""
     #Train the model
     trainer.train('exercise_2_folder/resources/taggers/ner-english',max_epochs=int(epochs),
-              monitor_train = True, monitor_test = True,learning_rate = 0.1,embeddings_storage_mode='gpu')
+              monitor_train = True, monitor_test = True,learning_rate = 0.1)
 
     #We create a png image with the loss or error of the train and test
     plotter = Plotter()
