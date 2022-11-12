@@ -1,4 +1,4 @@
-Leonardo Gracida Munoz A01379812
+#Leonardo Gracida Munoz A01379812
 from flair.data import Corpus,Dictionary
 from flair.datasets import ColumnCorpus
 from flair.models import SequenceTagger
