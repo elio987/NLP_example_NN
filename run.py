@@ -1,16 +1,17 @@
 #Leonardo Gracida Munoz A01379812
 #Import the task functions
-from exercise1_func import sentiment_analysis
+from exercise1_func import SentimentalModel
 from exercise2_func import trainer_model,test,train_model
-from exercise3_func import translate_blue_score
+from exercise3_func import Translate
 from flair.models import SequenceTagger
 
 """Exercise1"""
+model = "sentiment-analysis"
 #The path of the dataset of the reviews
 file_path = 'exercise_1_folder/tiny_movie_reviews_dataset.txt'
 #We start the sentimental analysis
-sentiment_analysis(file_path)
-
+Sentimental = SentimentalModel(model=model,file_path=file_path)
+Sentimental.sentimental_analysis()
 """Exercise2"""
 #The name of the flair pretrained model we want to retrain
 model_name = "flair/ner-english-ontonotes-fast"
@@ -25,6 +26,7 @@ test(model,corpus)
 """Exercise3"""
 #The paths the english and spanish text
 path_txt_eng = "exercise_3_folder/eng_100.txt"
-path_tst_esp = "exercise_3_folder/esp_100.txt"
-#We call the apis and get the blus score
-translate_blue_score(path_txt_eng,path_tst_esp)
+path_txt_esp = "exercise_3_folder/esp_100.txt"
+#We call the apis and get the bleu score
+Traductor = Translate(path_txt_eng=path_txt_eng,path_txt_esp=path_txt_esp)
+Traductor.translate_blue_score()
