@@ -1,6 +1,6 @@
 # NLP_example_NN
-Here we use three different NN, NER, sentimen analysis and translator
-- The run.py file call the functions and classes of the three tasks, and each folder has each exercise separated and the dataset of each exercise.
+Here we use three different NN, NER, sentiment analysis and translator
+- The run.py file call the functions and classes of the three tasks, and each folder has each dataset of each exercise.
 - We call the functions or class of the task using three differents py files "exercise1_func.py,exercise2_func.py,exercise3_func.py".
 - The model of the exercise 2 is inside que folder called "exercise_2_folder/resources/taggers/ner-english/final-model.pt", but you need to train the model first to create the folder.<br>
 - To run the class test for exercise 1 run: <br>

@@ -1,7 +1,7 @@
 #Leonardo Gracida Munoz A01379812
-#Import the libraries to do sentimental analysis
+#Import the libraries to do sentiment analysis
 from transformers import pipeline
-#library that contains de puntiation characters
+#library that contains de punctation characters
 import string
 import unittest
 
@@ -17,13 +17,13 @@ class SentimentalModel():
         predictions = []
         with open(self.file_path,'r') as file:
             lines = file.readlines()
-            for i in lines:
+            for line in lines:
                 #For each line que extract the punctiation characters, for example: ""
                 """The translate function replace checracters with other characters, and the function maketrans,
                 creates a dictionary to can replace characters with other characters and delete characters of the string."""
-                i = i.translate(str.maketrans('', '', string.punctuation))
+                line = line.translate(str.maketrans('', '', string.punctuation))
                 #Print the prediction of the review
-                pred = self.sentiment_pipeline(i)[0]['label']
+                pred = self.sentiment_pipeline(line)[0]['label']
                 predictions.append(pred)
                 print(pred)
         return predictions
