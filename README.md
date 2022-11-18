@@ -11,7 +11,5 @@ Here we use three different NN, NER, sentimen analysis and translator
 ```pip install -r requirements.txt && python run.py```
 - If not:<br>
 ```pip3 install -r requirements.txt && python3 run.py```<br>
-- To do the unitest of the exercise 1 use this command: <br>
-``````
 - The learning line or plot of the loss while training and testing is inside "exercise_2_folder/resources/training.png", but here there is an example of the final plot (using the complete dataset):<br>
 ![Alt text](training.png?raw=true "Learning line")
