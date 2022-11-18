@@ -1,3 +1,5 @@
+# This doesn't seem to translate! maybe unfinished?
+
 with open("europarl-v7.es-en.en","r") as file:
     lines_eng = file.readlines()
 with open("europarl-v7.es-en.es","r") as file:
