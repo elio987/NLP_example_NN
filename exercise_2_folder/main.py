@@ -6,6 +6,26 @@ from flair.trainers import ModelTrainer
 from flair.data import Sentence
 from flair.models import SequenceTagger
 from flair.visual.training_curves import Plotter
+
+
+# It’s best practice to have your code in a descriptive method or small class, if possible, rather than running at the top-level.  makes it easier for other modules to import the functionality later if needed! 
+
+# Name this file something descriptive (or the name of the class) rather than just Main :) 
+
+"""
+Try to split your code into methods and classes with descriptive names! Some reading for this: 
+
+https://www.geeksforgeeks.org/python-classes-and-objects/
+https://www.dataquest.io/blog/using-classes-in-python/
+
+
+
+And be sure to add tests! When writing code, I write the test for each class or piece of functionality as soon as I finish that piece. It helps you develop incrementally, being sure that each piece of code is clean and works like you expect it to! 
+
+
+best practices are to have a structure like this: https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure
+
+"""
 #Tag of the data we will use
 columnas = {0 : 'text', 1 : 'ner'}
 #Folder where is stored the dataset, in this case the dataset is in the same folder
